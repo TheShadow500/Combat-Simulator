@@ -64,114 +64,72 @@
 
         public string DevolverNombre
         {
-            get
-            {
-                return nombre;
-            }
+            get { return nombre; }
         }
 
         public string DevolverClase
         {
-            get
-            {
-                return clase;
-            }
+            get { return clase; }
         }
 
         public int DevolverNivel
         {
-            get
-            {
-                return nivel;
-            }
+            get { return nivel; }
         }
 
         public int DevolverFuerza
         {
-            get
-            {
-                return fuerza;
-            }
+            get { return fuerza; }
         }
 
         public int DevolverDestreza
         {
-            get
-            {
-                return destreza;
-            }
+            get { return destreza; }
         }
 
         public int DevolverAgilidad
         {
-            get
-            {
-                return agilidad;
-            }
+            get { return agilidad; }
         }
 
         public int DevolverInteligencia
         {
-            get
-            {
-                return inteligencia;
-            }
+            get { return inteligencia; }
         }
 
         public int DevolverAtaque
         {
-            get
-            {
-                return ataque;
-            }
+            get { return ataque; }
         }
 
         public int DevolverDefensa
         {
-            get
-            {
-                return defensa;
-            }
+            get { return defensa; }
         }
 
         public int DevolverEsquivar
         {
-            get
-            {
-                return esquivar;
-            }
+            get { return esquivar; }
         }
 
         public int DevolverMagia
         {
-            get
-            {
-                return magia;
-            }
+            get { return magia; }
         }
 
         public int DevolverVida
         {
-            get
-            {
-                return vida;
-            }
+            get { return vida; }
         }
 
         public int DevolverMana
         {
-            get
-            {
-                return mana;
-            }
+            get { return mana; }
         }
 
         public bool DevolverProtagonista
         {
-            get
-            {
-                return protagonista;
-            }
+            get { return protagonista; }
         }
     }
 }
