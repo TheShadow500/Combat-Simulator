@@ -1,0 +1,27 @@
+Combat Simulator v0.10
+Creado por: Daniel Amores (TheShadow)
+Grupo de Desarrollo: Sinister Software
+Página Web: http://theshadow500.blogspot.com
+
+version 0.10 (22/06/23)
+----------------------------------------------
+
+Errores Conocidos
+- Ninguno
+
+Errores Corregidos
+- Ninguno
+
+Mejoras
+- Optimización del código
+- El proceso de Creación de Personaje se realiza en una clase independiente
+
+Próximas Mejoras Programadas
+- Aun por determinar
+
+
+------------------------------------------------------------------------------
+
+Si encuentra algún error o tiene alguna sugerencia, no dude en escribirme a:
+
+			damorescorzo@gmail.com
