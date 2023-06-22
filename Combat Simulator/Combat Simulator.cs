@@ -1,8 +1,12 @@
+using System.Diagnostics;
+
 namespace Combat_Simulator
 {
     public partial class fr_PantallaPartida : Form
     {
-        int opcion; // Clase escogida
+        CreacionPersonaje creacionPersonaje = new CreacionPersonaje();
+        Personaje heroe;
+        Personaje enemigo;
         int nivelCombate = 1;
 
         public fr_PantallaPartida()
@@ -22,10 +26,11 @@ namespace Combat_Simulator
             }
             else
             {
-                Creacion_Heroe(false);
+                enemigo = creacionPersonaje.creacion_personaje(false, 4);
                 bt_Atacar.Enabled = true;
                 bt_Defender.Enabled = true;
                 bt_Magia.Enabled = true;
+                MostrarEnemigo(enemigo);
             }
         }
 
@@ -34,9 +39,9 @@ namespace Combat_Simulator
             // Seleccion de la clase Guerrero
             if (rd_Guerrero.Checked && MessageBox.Show("La clase Guerrero basa sus atributos en la Fuerza y Destreza.\n\nEstá pensado para el combate con armas cuerpo a cuerpo.\n\n¿Desea escoger esta clase?", "GUERRERO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                opcion = 0;
                 MessageBox.Show("Ha escogido la clase GUERRERO", "Bienvenido a Combat Simulator");
-                Creacion_Heroe(true);
+                heroe = creacionPersonaje.creacion_personaje(true, 0);
+                InicializarPartida(heroe);
             }
         }
 
@@ -45,9 +50,9 @@ namespace Combat_Simulator
             // Seleccion de la clase Arquero
             if (rd_Arquero.Checked && MessageBox.Show("La clase Arquero basa sus atributos en la Agilidad y la Destreza.\n\nEstá pensado para el combate con armas a distancia.\n\n¿Desea escoger esta clase?", "ARQUERO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                opcion = 1;
                 MessageBox.Show("Ha escogido la clase ARQUERO", "Bienvenido a Combat Simulator");
-                Creacion_Heroe(true);
+                heroe = creacionPersonaje.creacion_personaje(true, 1);
+                InicializarPartida(heroe);
             }
         }
 
@@ -56,53 +61,9 @@ namespace Combat_Simulator
             // Seleccion de la clase Mago
             if (rd_Mago.Checked && MessageBox.Show("La clase Mago basa sus atributos en la Inteligencia y la Destreza.\n\nEstá pensado para el combate con armas a distancia.\n\n¿Desea escoger esta clase?", "MAGO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                opcion = 2;
                 MessageBox.Show("Ha escogido la clase MAGO", "Bienvenido a Combat Simulator");
-                Creacion_Heroe(true);
-            }
-        }
-
-        private void Creacion_Heroe(bool protagonista)
-        {
-            Random random = new Random();
-            int rama;
-            string nombre;
-
-            // Seleccion aleatoria del nombre segun clase
-            string[,] nombres = new string[3, 10]{
-                { "Leofric", "Eadric", "Aldric", "Beowulf", "Cedric", "Edmund", "Godric", "Harold", "Ivor", "Leofwin" }, // Nombres Guerrero
-                { "Aelwen", "Branoc", "Caelan", "Deryn", "Eirian", "Farren", "Gareth", "Hawke", "Idris", "Jareth" }, // Nombres Arquero
-                { "Arcturus", "Bramble", "Corbin", "Dorian", "Eldric", "Finnian", "Gideon", "Hadrian", "Isidore", "Jericho" } // Nombres Mago
-            };
-
-            if (!protagonista)
-            {
-                opcion = random.Next(0, 3);
-            }
-
-            nombre = nombres[opcion, random.Next(0, 10)];
-
-            // Seleccion aleatoria de los atributos segun clase
-            int[,,] atributos = new int[3, 3, 4]
-            {
-                { {4, 3, 2, 1 }, {5, 4, 1, 0}, {4, 3, 1, 1} }, // Combinaciones de Atributos del Guerrero
-                { {2, 4, 3, 1 }, {1, 5, 4, 0}, {1, 4, 3, 1} }, // Combinaciones de Atributos del Arquero
-                { {1, 2, 3, 4 }, {0, 1, 4, 5}, {1, 1, 3, 4} }, // Combinaciones de Atributos del Mago
-            };
-
-            rama = random.Next(0, 3);
-
-            if (protagonista)
-            {
-                // Creacion del heroe con todos los valores obtenidos
-                Personaje heroe = new Personaje(nombre, atributos[opcion, rama, 0], atributos[opcion, rama, 1], atributos[opcion, rama, 2], atributos[opcion, rama, 3], true, opcion);
+                heroe = creacionPersonaje.creacion_personaje(true, 2);
                 InicializarPartida(heroe);
-            }
-            else
-            {
-                // Creacion del enemigo
-                Personaje enemigo = new Personaje(nombre, atributos[opcion, rama, 0], atributos[opcion, rama, 1], atributos[opcion, rama, 2], atributos[opcion, rama, 3], false, opcion);
-                MostrarEnemigo(enemigo);
             }
         }
 
@@ -148,6 +109,18 @@ namespace Combat_Simulator
             lb_DefensaEnemigo.Text = "Bon.Defensa: " + enemigo.DevolverDefensa + "%";
             lb_EsquivarEnemigo.Text = "Bon.Esquivar: " + enemigo.DevolverEsquivar + "%";
             lb_MagiaEnemigo.Text = "Bon.Magia: " + enemigo.DevolverMagia + "%";
+        }
+
+        private void changeLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(File.Exists("ChangeLog.txt"))
+            {
+                Process.Start("Notepad.exe", "ChangeLog.txt");
+            }
+            else
+            {
+                MessageBox.Show("El archivo ChangeLog.txt no existe", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

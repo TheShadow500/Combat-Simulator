@@ -3,7 +3,7 @@ Creado por: Daniel Amores (TheShadow)
 Grupo de Desarrollo: Sinister Software
 Página Web: http://theshadow500.blogspot.com
 
-version 0.10 (22/06/23)
+Version 0.10 (22/06/23)
 ----------------------------------------------
 
 Errores Conocidos

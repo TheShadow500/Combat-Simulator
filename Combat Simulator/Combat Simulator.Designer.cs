@@ -534,7 +534,7 @@
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(96, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -548,24 +548,25 @@
             // changeLogToolStripMenuItem
             // 
             changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            changeLogToolStripMenuItem.Size = new Size(135, 22);
+            changeLogToolStripMenuItem.Size = new Size(180, 22);
             changeLogToolStripMenuItem.Text = "ChangeLog";
+            changeLogToolStripMenuItem.Click += changeLogToolStripMenuItem_Click;
             // 
             // readMeToolStripMenuItem
             // 
             readMeToolStripMenuItem.Name = "readMeToolStripMenuItem";
-            readMeToolStripMenuItem.Size = new Size(135, 22);
+            readMeToolStripMenuItem.Size = new Size(180, 22);
             readMeToolStripMenuItem.Text = "ReadMe";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(132, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(135, 22);
+            aboutToolStripMenuItem.Size = new Size(180, 22);
             aboutToolStripMenuItem.Text = "About";
             // 
             // fr_PantallaPartida
